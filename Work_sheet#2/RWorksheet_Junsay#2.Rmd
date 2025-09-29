@@ -1,0 +1,28 @@
+---
+title: 'Lab Exercise #1'
+author: "Syndric James Z. Junsay"
+date: "2025-09-29"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Exercise 1 Create a vector using : operator
+a. Sequence from -5 to 5. Write the R code and its output. Describe its output.
+```{r setup, include=FALSE}
+y <- c(-5:5)
+print(x)
+```
+b. x <- 1:7. What will be the value of x?
+```{r setup, include=FALSE}
+x <- c(1:7)
+print(x)
+```
+The value of x is:
+[1] 1 2 3 4 5 6 7
+## Exercise 2
+
+
+
