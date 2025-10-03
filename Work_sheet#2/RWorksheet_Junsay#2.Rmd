@@ -10,14 +10,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Exercise 1 Create a vector using : operator
-a. Sequence from -5 to 5. Write the R code and its output. Describe its output.
+#a. Sequence from -5 to 5. Write the R code and its output. Describe its output.
 ```{r setup, include=FALSE}
 y <- c(-5:5)
 print(x)
 ```
-The output generates a sequence of integers starting from -5 and increasing by 1 up to 5.
+#The output generates a sequence of integers starting from -5 and increasing by 1 up to 5.
 
-b. x <- 1:7. What will be the value of x?
+#b. x <- 1:7. What will be the value of x?
 ```{r setup, include=FALSE}
 x <- c(1:7)
 print(x)
@@ -25,7 +25,7 @@ print(x)
 The value of x is:
 [1] 1 2 3 4 5 6 7
 ## Exercise 2 Create a vector using seq() function
-a. seq(1, 3, by=0.2) # specify step size
+#a. seq(1, 3, by=0.2) # specify step size
 ```{r setup, include=FALSE}
 vector <- seq(1, 3, by=0.2)
 print (vector)
@@ -204,7 +204,7 @@ celebrity_name[index]
 power_ranking[index]
 pay[index]
 
-#output:
+#output
 #celebrity_name[index]
 #[1] "J.K. Rowling"
 # power_ranking[index]
@@ -213,6 +213,7 @@ pay[index]
 #[1] 90
 > 
 ```
+
 c. Interpret the data.
 
 The data shows the top 25 highest-paid or most powerful celebrities according to Forbes. power_ranking indicates their influence, while pay indicates their annual earnings in million USD.
@@ -225,4 +226,3 @@ Celebrity with lowest pay: Brad Pitt ($25M)
 J.K. Rowling’s new ranking and pay indicate a significant increase in both influence and earnings.
 
 This data set can be used to analyze trends between pay and influence, e.g., do higher pay always mean higher ranking?
-
