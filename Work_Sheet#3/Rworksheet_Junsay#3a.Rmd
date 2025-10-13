@@ -1,0 +1,125 @@
+---
+title: "RWorksheet_Junsay#3a.Rmd"
+author: "Syndric James Z. Junsay"
+date: "2025-10-13"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+##1. There is a built-in vector LETTERS contains the uppercase letters of the alphabet and letters which contains the lowercase letters of the alphabet.
+
+a. You need to produce a vector that contains the first 11 letters.
+```{r}
+LETTERS[1:11]
+```
+b. Produce a vector that contains the odd numbered letters.
+```{r}
+LETTERS[seq(1, 26, by =2)]
+```
+c. Produce a vector that contains the vowels
+```{r}
+LETTERS[LETTERS %in% c("A","E","I","O","U")]
+```
+Based on the above vector letters:
+
+d. Produce a vector that contains the last 5 lowercase letters.
+```{r}
+tail(letters,5)
+```
+e. Produce a vector that contains letters between 15 to 24 letters in lowercase.
+```{r}
+letters[15:24]
+```
+
+##2. Create a vector(not a dataframe) with the average temperatures in April for Tugue-garao City, Manila, Iloilo City, Tacloban, Samal Island, and Davao City. The average  temperatures in Celcius are 42, 39, 34, 34, 30, and 27 degrees.
+
+a. What is the R code and its result for creating a character vector for the city/townm of Tuguegarao City, Manila, Iloilo City, Tacloban,Samal Island, and Davao City? Name the object as city. The names should follow the same order as in the instruction.
+```{r}
+city <-c("Tuguegarao City", "Manila", "Iloilo City", "Tacloban","Samal Island", "Davao City")
+city
+```
+b. The average temperatures in Celcius are 42, 39, 34, 34, 30, and 27 degrees.
+Name the object as temp. Write the R code and its output. Numbers should also follow
+what is in the instruction.
+```{r}
+temp <-c(42, 39, 34, 34, 30, 27)
+temp
+```
+c. Create a dataframe to combine the city and the temp by using ‘data.frame(). What
+the R code and its result?
+```{r}
+City_temp<- data.frame(city,  temp)
+print(City_temp)
+```
+d. Associate the dataframe you have created in 2.(c) by naming the columns using
+the names() function. Change the column names by using names() function as City and
+Temperature. What is the R code and its result?
+```{r}
+names(City_temp) <-c("City", "Temperature")
+City_temp
+```
+e. Print the structure by using str() function. Describe the output.
+```{r}
+str(City_temp)
+```
+f. From the answer in d, what is the content of row 3 and row 4 What is its R code and
+its output?
+```{r}
+City_temp[3:4, ]
+```
+g. From the answer in d, display the city with highest temperature and the city with
+the lowest temperature. What is its R code and its output?
+
+#City with highest temperature
+```{r}
+City_temp[City_temp$Temperature == max(City_temp$Temperature), ]
+```
+#City with lowest Temperature
+```{r} 
+City_temp[City_temp$Temperature == min(City_temp$Temperature), ]
+```
+##Using Matrices
+2. Create a matrix of one to eight and eleven to fourteen with four columns and three
+rows.
+
+a. What will be the R code for the #2 question and its result?
+```{r}
+
+m<-matrix(c(1:8, 11:14), ncol = 4, nrow = 3)
+m
+```
+b. Multiply the matrix by two. What is its R code and its result?
+```{r}
+
+m2<- m*2
+m2
+```
+c. What is the content of row 2? What is its R code?
+```{r}
+m2[2, ]
+```
+d. What will be the R code if you want to display the column 3 and column 4 in row 1
+and row 2? What is its output?
+```{r}
+m2[1:2, 3:4]
+```
+e. What is the R code is you want to display only the columns in 2 and 3, row 3? What
+is its output?
+```{r}
+m2[3, 2:3, drop = FALSE]
+```
+```{r}
+m2[, 4, drop = FALSE]
+```
+
+
+
+
+
+
+
+
+
+
