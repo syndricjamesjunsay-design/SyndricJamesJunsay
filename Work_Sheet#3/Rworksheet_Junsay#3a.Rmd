@@ -110,16 +110,65 @@ is its output?
 ```{r}
 m2[3, 2:3, drop = FALSE]
 ```
+f. What is the R code if you want to display only the columns 4? What is its output?
+
 ```{r}
 m2[, 4, drop = FALSE]
 ```
+g. Name the rows as isa, dalawa, tatlo and columns as uno, dos, tres, quatro
+for the matrix that was created in b.‘. What is its R code and corresponding output?
+```{r}
+rownames(m) <- c("isa", "dalawa", "tatlo")
+colnames(m) <- c("uno", "dos", "tres", "quatro")
+m
+```
+h. From the original matrix you have created in a, reshape the matrix by assigning a
+new dimension with dim(). New dimensions should have 2 columns and 6 rows. What will
+be the R code and its output?
 
+```{r}
+dim(m) <- c(2, 6)
+m
+```
+Using Arrays
 
+• Array can have more than two dimensions by using the array() function and dim()
+to specify the dimensions
 
+## creates a two-dimensional array containing numbers from 1 to 24 that have 3 rows and 4 columns
 
+3. An array contains 1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1
+```{r}
+# Create vector with values repeated twice
+values <- c(1,2,3,6,7,8,9,0,3,4,5,1)
+values <- rep(values, 2)
+```
 
+a. Create an array for the above numeric values. Each values will be repeated twice
+What will be the R code if you are to create a three-dimensional array with 4 columns and
+2 rows. What will be its output?
+```{r}
+# Create 3D array with 4 columns, 2 rows
+arr <- array(values, dim = c(2, 4, 3))
+arr
+```
+b. How many dimensions do your array have?
+```{r}
+array_data <- array(values, dim = c(2, 4, 3))
+dim(array_data)
+```
+c. Name the rows as lowercase letters and columns as uppercase letters starting from
+the A. The array names should be “1st-Dimensional Array”, “2nd-Dimensional Array”, and
+“3rd-Dimensional Array”. What will be the R codes and its output?
+```{r}
+# Row names (lowercase letters)
+rownames <- c("a", "b")
 
+# Column names (uppercase letters)
+colnames <- c("A", "B", "C", "D")
 
-
-
-
+# Layer names (3rd dimension)
+layernames <- c("1st-Dimensional Array", "2nd-Dimensional Array", "3rd-Dimensional Array")
+dimnames(array_data) <- list(rownames, colnames, layernames)
+array_data
+```
