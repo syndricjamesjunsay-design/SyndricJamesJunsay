@@ -172,7 +172,7 @@ ggplot(sentiments, aes(x = interaction(Date, Sentiment), y = Count, fill = Senti
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 ## The graph shows that tweet sentiments were mostly negative at the beginning of the period, gradually shifted to more neutral tones midweek, and became increasingly positive toward the end.
-
+ 
 
 
 
