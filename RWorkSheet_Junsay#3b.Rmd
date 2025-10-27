@@ -122,6 +122,7 @@ HouseholdData$Types_of_Houses <- factor(HouseholdData$Types_of_Houses,
 print(HouseholdData)
 str(HouseholdData)
 ```
+
 d. On father’s occupation, factor it as Farmer = 1; Driver = 2; and Others = 3. What
 is the R code and its output?
 ```{r}
@@ -170,7 +171,7 @@ ggplot(sentiments, aes(x = interaction(Date, Sentiment), y = Count, fill = Senti
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
-
+## The graph shows that tweet sentiments were mostly negative at the beginning of the period, gradually shifted to more neutral tones midweek, and became increasingly positive toward the end.
 
 
 
