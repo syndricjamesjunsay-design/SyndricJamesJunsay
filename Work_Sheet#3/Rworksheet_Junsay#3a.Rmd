@@ -55,7 +55,7 @@ print(City_temp)
 ```
 d. Associate the dataframe you have created in 2.(c) by naming the columns using
 the names() function. Change the column names by using names() function as City and
-Temperature. What is the R code and its result?
+Temperature. What is the R code and its result.
 ```{r}
 names(City_temp) <-c("City", "Temperature")
 City_temp
