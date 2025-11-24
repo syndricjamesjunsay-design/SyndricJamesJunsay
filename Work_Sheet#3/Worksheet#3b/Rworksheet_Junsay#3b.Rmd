@@ -1,0 +1,179 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+title: "RWorksheet_Junsay#3b"
+author: "Syndric James Z. Junsay"
+date: "2025-10-16"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## 1. Create a data frame using the table below.
+ a. Write the codes.
+ 
+```{r}
+Respondents <- 1:20
+Sex <- c(2,2,1,2,2,2,2,2,2,1,1,2,2,2,2,2,2,1,1,2)
+Fathers_Occupation <- c(1,3,3,3,1,2,3,1,1,1,3,2,1,3,3,1,3,1,2,1)
+Persons_at_Home <- c(5,7,3,8,1,9,6,7,8,4,7,5,4,7,8,8,3,11,5,6)
+Siblings_at_School <- c(6,4,4,1,4,1,5,3,1,2,3,2,5,3,2,1,2,5,3,2)
+Types_of_Houses <- c(1,2,3,1,1,3,3,1,3,2,2,3,2,3,3,3,3,3,3,2)
+
+# Combine into a data frame
+survey_data <- data.frame(Respondents, Sex, Fathers_Occupation, Persons_at_Home, 
+                          Siblings_at_School, Types_of_Houses)
+
+# Display the data
+print(survey_data)
+```
+b.Describe the data. Get the structure or the summary of the data
+
+```{r}
+str(survey_data)
+summary(survey_data)
+```
+c. Is the mean number of siblings attending is 5?
+```{r}
+mean(Siblings_at_School)
+```
+no, the mean number of siblings attending is not 5.
+
+d. Extract the 1st two rows and then all the columns using the subsetting functions.
+Write the codes and its output.
+
+```{r}
+first_two <- survey_data[1:2, ]
+print(first_two)
+```
+e. Extract 3rd and 5th row with 2nd and 4th column. Write the codes and its result.
+```{r}
+third_fourth <- survey_data[c(3, 5), c(2,4)]
+print(third_fourth)
+```
+f. Select the variable types of houses then store the vector that results as types_houses.
+Write the codes.
+```{r}
+types_houses <- survey_data$Types_of_Houses
+print(types_houses)
+```
+g. Select only all Males respondent that their father occupation was farmer. Write the
+codes and its output.
+```{r}
+male_farmers <- subset(survey_data, Sex == 1 & Fathers_Occupation == 1)
+print(male_farmers)
+```
+h. Select only all females respondent that have greater than or equal to 5 number of
+siblings attending school. Write the codes and its outputs.
+```{r}
+female_many_siblings <- subset(survey_data, Sex == 2 & Siblings_at_School >= 5)
+print(female_many_siblings)
+```
+## 2. Write a R program to create an empty data frame. Using the following codes:
+
+a. Describe the results.
+```{r}
+df = data.frame(Ints=integer(),Doubles=double(), Characters=character(), Logicals=logical(), Factors=factor(), stringsAsFactors=FALSE)
+print("Structure of the empty dataframe:")
+print(str(df))
+```
+3. Create a .csv file of this. Save it as HouseholdData.csv
+```{r}
+Respondents <- 1:10
+Sex <- c("Male", "Female", "Female", "Male", "Male", 
+         "Female", "Female", "Male", "Female", "Male")
+Fathers_Occupation <- c(1, 2, 3, 3, 1, 2, 2, 3, 1, 3)
+Persons_at_Home <- c(5, 7, 3, 8, 6, 4, 4, 2, 11, 6)
+Siblings_at_School <- c(2, 3, 0, 5, 2, 3, 1, 2, 6, 2)
+Types_of_Houses <- c("Wood", "Congrete", "Congrete", "Wood", 
+                     "Semi-congrete", "Semi-congrete", "Wood", 
+                     "Semi-congrete", "Semi-congrete", "Congrete")
+
+# Combine into a data frame
+HouseholdData <- data.frame(Respondents, Sex, Fathers_Occupation,
+                            Persons_at_Home, Siblings_at_School,
+                            Types_of_Houses)
+
+# View the data frame
+print(HouseholdData)
+
+write.csv(HouseholdData, "HouseholdData.csv", row.names = FALSE)
+```
+
+a. Import the csv file into the R environment. Write the codes.
+```{r}
+HouseholdData <- read.csv("HouseholdData.csv")
+print(HouseholdData)
+```
+b. Convert the Sex into factor using factor() function and change it into integer.[Legend:
+Male = 1 and Female = 2]. Write the R codes and its output.
+```{r}
+HouseholdData$Sex <- factor(HouseholdData$Sex,
+                            levels = c("Male", "Female"),
+                            labels = c(1, 2))
+print(HouseholdData)
+str(HouseholdData)
+```
+c. Convert the Type of Houses into factor and change it into integer. [Legend: Wood
+= 1; Congrete = 2; Semi-Congrete = 3]. Write the R codes and its output.
+```{r}
+HouseholdData$Types_of_Houses <- factor(HouseholdData$Types_of_Houses,
+                                        levels = c("Wood", "Congrete", "Semi-congrete"),
+                                        labels = c(1, 2, 3))
+print(HouseholdData)
+str(HouseholdData)
+```
+
+d. On father’s occupation, factor it as Farmer = 1; Driver = 2; and Others = 3. What
+is the R code and its output?
+```{r}
+HouseholdData$Fathers_Occupation <- factor(HouseholdData$Fathers_Occupation,
+                                           levels = c(1, 2, 3),
+                                           labels = c("Farmer", "Driver", "Others"))
+print(HouseholdData)
+str(HouseholdData)
+```
+e. Select only all females respondent that has a father whose occupation is driver. Write
+the codes and its output.
+```{r}
+female_driver <- subset(HouseholdData, Sex == 2 & Fathers_Occupation == "Driver")
+print(female_driver)
+```
+f. Select the respondents that have greater than or equal to 5 number of siblings attending
+school. Write the codes and its output.
+
+```{r}
+five_or_more_siblings <- subset(HouseholdData, Siblings_at_School >= 5)
+print(five_or_more_siblings)
+```
+##4. Interpret the graph.
+```{r}
+library(ggplot2)
+
+sentiments <- data.frame(
+  Date = rep(c("July 14, 2020", "July 15, 2020", "July 17, 2020",
+               "July 18, 2020", "July 20, 2020", "July 21, 2020"), each = 3),
+  Sentiment = rep(c("Negative", "Neutral", "Positive"), times = 6),
+  Count = c(2500, 1500, 1800,
+            4200, 2800, 3200,
+            3300, 2100, 2500,
+            3200, 2000, 2600,
+            2300, 1500, 2000,
+            4100, 2700, 3400)
+)
+
+
+ggplot(sentiments, aes(x = interaction(Date, Sentiment), y = Count, fill = Sentiment)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  labs(title = "Sentiments Of Tweets Per Day",
+       x = "Day of Date / Sentiment",
+       y = "Count of Tweets") +
+  scale_fill_manual(values = c("red", "orange", "blue")) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+## The graph shows that tweet sentiments were mostly negative at the beginning of the period, gradually shifted to more neutral tones midweek, and became increasingly positive toward the end.
+ 
